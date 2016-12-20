@@ -168,7 +168,8 @@ goto STARTINGNTP
 
 :BYEBYE
 echo.
-echo ok, thanks.... Bye
+echo Ok, we are all done here,
+echo thanks.... Bye
 pause
 ENDLOCAL 
 goto :EOF
@@ -189,4 +190,14 @@ goto :EOF
 :::                 | |\  | | | | |       | | | | | | | | |  __/
 :::                 \_| \_/ \_/ \_|       \_/ |_|_| |_| |_|\___|
                                             
-                                            
+
+
+
+
+
+
+
+
+
+
+::Peace, DigitalEntity
