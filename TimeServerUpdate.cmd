@@ -88,6 +88,7 @@ echo.
 echo.
 echo.
 echo.
+SETLOCAL
 echo This will change your time service to pool.ntp.org servers.
 :CHANGETIMEYN
 echo.
@@ -143,15 +144,33 @@ goto LOOKBETTERYN
 
 :LOOKBETTERYN
 echo.
-set /P LOOKBETTER=Does this look ok? [Y/N]:
+set /P LOOKBETTER=Does the "source" (second from bottom) say x.pool.ntp.org? [Y/N]:
 if /I "%LOOKBETTER%" EQU "Y" goto BYEBYE
-if /I "%LOOKBETTER%" EQU "N" goto STARTINGNTP
+if /I "%LOOKBETTER%" EQU "N" goto ISVMYN
 goto LOOKBETTERYN
+
+:ISVMYN
+echo.
+set /P ISVM=Does it say "VM IC ..."? [Y/N]:
+if /I "%ISVM%" EQU "Y" goto ISVMY
+if /I "%ISVM%" EQU "N" goto ISVMN
+goto ISVMYN
+
+:ISVMY
+echo.
+echo You have a VM in front of you. You should find the Host and run this.
+goto BYEBYE 
+
+:ISVMN
+echo.
+echo So we will try this again...
+goto STARTINGNTP
 
 :BYEBYE
 echo.
 echo ok, thanks.... Bye
-endlocal 
+pause
+ENDLOCAL 
 goto :EOF
 
 
