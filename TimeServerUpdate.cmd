@@ -72,6 +72,14 @@ echo.
 echo.
 echo.
 echo.
+
+:: this prints the ASCII art
+for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
+
+
+:: gotta be hacker green
+color 0A
+
 echo.
 echo.
 echo.
@@ -97,9 +105,7 @@ echo Stopping the time services
 net stop w32time
 echo.
 echo Setting the NTP Server to pool.ntp.org
-w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 
-
-3.pool.ntp.org"
+w32tm /config /syncfromflags:manual /manualpeerlist:"0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
 echo.
 echo done, now we turn back on the services and check...
 net start w32time
@@ -147,3 +153,21 @@ echo.
 echo ok, thanks.... Bye
 endlocal 
 goto :EOF
+
+
+
+
+
+
+
+
+::ASCI ART, You know you love it...
+
+:::                  _   _ ___________   _____ _                
+:::                 | \ | |_   _| ___ \ |_   _(_)               
+:::                 |  \| | | | | |_/ /   | |  _ _ __ ___   ___ 
+:::                 | . ` | | | |  __/    | | | | '_ ` _ \ / _ \
+:::                 | |\  | | | | |       | | | | | | | | |  __/
+:::                 \_| \_/ \_/ \_|       \_/ |_|_| |_| |_|\___|
+                                            
+                                            
