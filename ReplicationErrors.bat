@@ -7,17 +7,13 @@ echo.
 
 mkdir C:\%computername%-DCtest
 
-FOR /F "tokens=2 delims=:" %%a IN ('ipconfig ^| findstr /IC:"IPv4 Address"') DO echo%%a >c:
-
-\%computername%-DCtest\ip.txt
+FOR /F "tokens=2 delims=:" %%a IN ('ipconfig ^| findstr /IC:"IPv4 Address"') DO echo%%a >c:\%computername%-DCtest\ip.txt
 
 set /p myip=<c:\%computername%-DCtest\ip.txt
 
 dcdiag /v /c /d /e /s:%computername% >c:\%computername%-DCtest\dcdiag.txt
 
-repadmin /showrepl %computername% /verbose /all /intersite >c:\%computername%-DCtest
-
-\repl.txt
+repadmin /showrepl %computername% /verbose /all /intersite >c:\%computername%-DCtest\repl.txt
 
 netdom query FSMO >c:\%computername%-DCtest\FSMOrole.txt
 
