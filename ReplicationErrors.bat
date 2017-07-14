@@ -21,6 +21,8 @@ repadmin /replsummary >c:\%computername%-DCtest\ReplicationSummary.txt
 
 ipconfig /all >c:\%computername%-DCtest\ipconfig.txt
 
+net statistics server >c:\%computername%-DCtest\netstatsvr.txt
+
 echo Done!
 echo.
 echo I have created the logs needed to troublesahoot, hit any key to open them.
